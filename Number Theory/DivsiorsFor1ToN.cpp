@@ -28,22 +28,15 @@ signed main() {
     while (t--) {
         ll n;
         cin>>n;
-        vector<ll> prime(n+1,true);
-        prime[0] =false;
-        prime[1] =false;
-        for(int i=2;i<=n;i++){
-            if(prime[i]){
-
-            
-            for(int j=i*i;j<=n;j+=i){
-                prime[j] = false;
+        vector<ll> a(n+1);
+        for(int i=1;i<=n;i++){
+            for(int j=i;j<=n;j+=i){
+                a[j]++;
             }
         }
-        }
 
-        for(ll i=2;i<=n;i++){
-            if(prime[i]) cout<<i<<endl;
-            
+        for(ll i=1;i<=n;i++){
+            cout<<i<<" "<<a[i]<<endl;
         }
         cout<<endl;
         cout<<endl;
