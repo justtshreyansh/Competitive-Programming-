@@ -23,35 +23,34 @@ signed main() {
     freopen("output.txt", "w", stdout);
     #endif
 
-    
-        ll n,q;
-        cin>>n>>q;
+    ll t;
+    cin >> t;
+    while (t--) {
+        ll n;
+        cin>>n;
         vector<ll> a(n);
         for(ll i=0;i<n;i++) cin>>a[i];
-        vector<ll> v(n+1,0);
+        vector<ll> diff(n,0);
+        ll q;
+        cin>>q;
         while(q--){
-            ll l,r;
-            cin>>l>>r;
-            l--;
-            r--;
-            
-            v[l]+=1;
-            v[r+1]--;
+            ll l,r,x;
+            cin>>l>>r>>x;
+            diff[l]+=x;
+            if(r+1<n){
+                diff[r+1]-=x;
+            }
+
         }
         for(ll i=1;i<n;i++){
-            v[i]+=v[i-1];
+            diff[i] += diff[i-1];
         }
-        sort(v.begin(),v.begin()+n);
-        sort(a.begin(),a.end());
 
-        ll ans = 0;
         for(ll i=0;i<n;i++){
-            ans+=(v[i]*a[i]);
+            cout<<diff[i]+a[i]<<" ";
         }
-        cout<<ans<<endl;
-
-        
-    
+        cout<<endl;
+    }
 
     return 0;
 }
