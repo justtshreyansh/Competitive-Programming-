@@ -35,19 +35,19 @@ signed main() {
             p.second =b;
             edgeList.push_back(p);
         }
-        vector<vector<ll>> adj(v+1,vector<int> (v+1));
+        map<ll,vector<ll>> mpp;
         for(ll i=0;i<e;i++){
             ll u = edgeList[i].first;
             ll v = edgeList[i].second;
-            adj[u][v] =1;
-            adj[v][u] = 1;
+            mpp[u].push_back(v);
+            mpp[v].push_back(u);
 
 
         }
 
-        for(auto i:adj){
-            
-            for(auto j:i){
+        for(auto i:mpp){
+            cout<<i.first<<"-> ";
+            for(auto j:i.second){
                 cout<<j<<" ";
             }
             cout<<endl;
