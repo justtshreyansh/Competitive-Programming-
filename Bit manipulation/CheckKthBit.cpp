@@ -29,11 +29,9 @@ signed main() {
         ll n,k;
         cin>>n>>k;
         ll result = n & (1LL << k);
-        if(result){
-            n = n ^ (1LL << k);
-        }
-        
-        cout<<n<<endl;
+        if(result) cout<<1<<endl;
+        else 
+        cout<<0<<endl;
     }
 
     return 0;

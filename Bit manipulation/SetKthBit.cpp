@@ -28,12 +28,8 @@ signed main() {
     while (t--) {
         ll n,k;
         cin>>n>>k;
-        ll result = n & (1LL << k);
-        if(result){
-            n = n ^ (1LL << k);
-        }
-        
-        cout<<n<<endl;
+        ll result = n | (1 << k);
+        cout<<result<<endl;
     }
 
     return 0;
