@@ -36,7 +36,7 @@ signed main() {
         for(ll i=0;i<n;i++){
             prefix[i] = a[i];
             if(i>0){
-                prefix[i] = prefix[i-1] ^ prefix[i];
+                prefix[i] ^= prefix[i-1] ;
             }
         }
         while(q--){
@@ -44,7 +44,7 @@ signed main() {
             cin>>l>>r;
             ll ans = prefix[r];
             if(l>0){
-                ans = ans^prefix[l-1];
+                ans^=prefix[l-1];
             }
             cout<<ans<<endl;
         }
