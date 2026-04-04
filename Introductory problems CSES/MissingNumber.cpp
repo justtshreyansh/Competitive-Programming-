@@ -15,27 +15,27 @@ using namespace std;
 typedef long long ll;
 typedef vector<ll> vi;
 
-signed main() {
+signed main()
+{
     fast_io();
 
-    #ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-    #endif
+#endif
 
     ll n;
-    cin>>n;
+    cin >> n;
     vector<ll> a(n);
-    ll sum =0;
-    for(ll i=0;i<n-1;i++) {
-        cin>>a[i];
-        sum+=a[i];
+    ll sum = 0;
+    for (ll i = 0; i < n - 1; i++)
+    {
+        cin >> a[i];
+        sum += a[i];
     }
 
-    ll sumTillN = n*(n+1)/2;
-    cout<<sumTillN - sum <<endl;
-
-
+    ll sumTillN = n * (n + 1) / 2;
+    cout << sumTillN - sum << endl;
 
     return 0;
 }
